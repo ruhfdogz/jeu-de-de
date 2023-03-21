@@ -1,8 +1,12 @@
 body {
-    
+    font-family: 'Lato', Arial, Helvetica, sans-serif;
 }
 .score {
-    font-size: 75px;
+    font-size: 100px;
     font-weight: lighter;
     color: lightcoral;
+}
+
+.btn {
+    text-shadow: 4px 4px 5px gray;
 }
