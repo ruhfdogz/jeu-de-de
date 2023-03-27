@@ -1,12 +1,37 @@
 body {
     font-family: 'Lato', Arial, Helvetica, sans-serif;
 }
+
+.btn {
+    border: none;
+}
+
 .score {
     font-size: 100px;
-    font-weight: lighter;
     color: lightcoral;
 }
 
+.font-light {
+    font-weight: lighter;
+}
+
 .btn {
-    text-shadow: 4px 4px 5px gray;
+    text-shadow: 4px 4px 5px lightgray;
+}
+
+.btn:hover {
+    font-weight: bold;
+}
+
+#diceImg {
+    width: 100px;
+    box-shadow: 2px 4px 10px hsla(0, 0%, 0%, 0.3);
+}
+
+.player2 {
+    font-weight: lighter;
+}
+
+#roundp2 {
+    display: none;
 }
