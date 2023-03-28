@@ -29,7 +29,7 @@ body {
 }
 
 .shakeImg {
-    animation: shake 0.5s;
+    animation: shake 0.3s;
 }
 
 @keyframes shake {

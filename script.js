@@ -34,9 +34,11 @@ function newGame() {
 
 function rollDice() {
     btnHold.classList.remove('disabled');
-    diceImg.classList.add('shakeImg')
+    btnRollDice.classList.add('disabled');
+    diceImg.classList.add('shakeImg');
     setTimeout(() => {
-        diceImg.classList.remove('shakeImg')
+        diceImg.classList.remove('shakeImg');
+        btnRollDice.classList.remove('disabled');
     }, "500")
     diceValue = Math.floor(Math.random() * 6) + 1;
     diceImg.src = `./images/de${diceValue}.jpg`;
@@ -58,10 +60,16 @@ function hold() {
     refreshDisplay();
     btnHold.setAttribute('class','btn my-2 disabled');
     if (scorePlayer[player] >= 100) {
-        alert(`Player ${player + 1} win the game.`);
-        newGame();
+        setTimeout(() => {
+            alert(`Player ${player + 1} win the game.`);
+            newGame();
+            changePlayer();
+        }, "100")
     }
-    changePlayer();
+    else {
+        changePlayer();
+    }
+    
 }
 
 function refreshDisplay() {
