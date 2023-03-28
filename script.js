@@ -34,6 +34,10 @@ function newGame() {
 
 function rollDice() {
     btnHold.classList.remove('disabled');
+    diceImg.classList.add('shakeImg')
+    setTimeout(() => {
+        diceImg.classList.remove('shakeImg')
+    }, "500")
     diceValue = Math.floor(Math.random() * 6) + 1;
     diceImg.src = `./images/de${diceValue}.jpg`;
     if (diceValue != 1) {
@@ -45,6 +49,7 @@ function rollDice() {
         changePlayer();
     }
     refreshDisplay();
+
 }
 
 function hold() {
