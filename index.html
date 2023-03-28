@@ -37,7 +37,7 @@
 
             <div class="row py-5 align-items-center">
                 <div class="col-5 fs-2">
-                    <span class="player1">PLAYER 1</span>
+                    <span id="player1">PLAYER 1</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="red" class="position-absolute translate-middle mx-4 my-4" id="roundp1">
                         <circle cx="8" cy="8" r="8" />
                     </svg>
@@ -48,8 +48,8 @@
                     <img src="./images/de1.jpg" alt="Dice Image" class="img-fluid mt-5" id="diceImg">
                 </div>
 
-                <div class="col-5 fs-2 player2">
-                    <span class="font-light">PLAYER 2</span>
+                <div class="col-5 fs-2">
+                    <span class="font-light" id="player2">PLAYER 2</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="red" class="position-absolute translate-middle mx-4 my-4 d-none" id="roundp2">
                         <circle cx="8" cy="8" r="8" />
                     </svg>
@@ -74,7 +74,7 @@
                         ROLL DICE
                     </button>
                     <br>
-                    <button type="button" class="btn my-2" id="hold">
+                    <button type="button" class="btn my-2 disabled" id="hold">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="lightcoral"
                             class="bi bi-box-arrow-in-down mx-1" viewBox="0 0 16 16">
                             <path fill-rule="evenodd"

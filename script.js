@@ -1,24 +1,22 @@
 // var init
-let scorePlayer1 = 0;
-let scorePlayer2 = 0;
-let roundPlayer1 = 0;
-let roundPlayer2 = 0;
+let scorePlayer = [0, 0];
+let roundPlayer = [0, 0];
 let diceValue = 1;
-let roundFinished = false;
-let win = false;
+let player = 0;     // 0 = Player 1 / 1 = Player 2
 
-// Buttons
-// New Game
+// Buttons & events
 let btnNewGame = document.getElementById('newgame')
 btnNewGame.addEventListener('click', newGame);
-// Roll Dice
 let btnRollDice = document.getElementById('rolldice')
 btnRollDice.addEventListener('click', rollDice)
-// Hold
 let btnHold = document.getElementById('hold')
 btnHold.addEventListener('click', hold)
 
 // DOM elements
+let player1Text = document.getElementById('player1')
+let player2Text = document.getElementById('player2')
+let roundP1 = document.getElementById('roundp1')
+let roundP2 = document.getElementById('roundp2')
 let scoreP1 = document.getElementById('scorep1')
 let scoreP2 = document.getElementById('scorep2')
 let currentP1 = document.getElementById('currentp1')
@@ -27,43 +25,60 @@ let diceImg = document.getElementById('diceImg');
 
 
 function newGame() {
-    scorePlayer1 = 0;
-    scorePlayer2 = 0;
-    roundPlayer1 = 0;
-    roundPlayer2 = 0;
-    alert('New game will begin')
-    btnRollDice.setAttribute('class','btn my-2')
-    btnHold.setAttribute('class','btn my-2')
+    scorePlayer = [0, 0];
+    roundPlayer = [0, 0];
+    btnHold.classList.add('disabled');
     refreshDisplay();
+    changePlayer();
 }
 
 function rollDice() {
+    btnHold.classList.remove('disabled');
     diceValue = Math.floor(Math.random() * 6) + 1;
     diceImg.src = `./images/de${diceValue}.jpg`;
     if (diceValue != 1) {
-        roundPlayer1 += diceValue;
+        roundPlayer[player] += diceValue;
     }
     else {
-        roundPlayer1 = 0;
-        btnHold.setAttribute('class','btn my-2 disabled');
+        roundPlayer[player] = 0;
+        btnHold.classList.add('disabled');
+        changePlayer();
     }
     refreshDisplay();
-    
 }
 
 function hold() {
-    scorePlayer1 += roundPlayer1;
-    roundPlayer1 = 0;
+    scorePlayer[player] += roundPlayer[player];
+    roundPlayer[player] = 0;
     refreshDisplay();
     btnHold.setAttribute('class','btn my-2 disabled');
-    alert('click sur Hold');
+    if (scorePlayer[player] >= 100) {
+        alert(`Player ${player + 1} win the game.`);
+        newGame();
+    }
+    changePlayer();
 }
 
 function refreshDisplay() {
-    scoreP1.innerText = scorePlayer1;
-    scoreP2.innerText = scorePlayer2;
-    currentP1.innerText = roundPlayer1;
-    currentP2.innerText = roundPlayer2;
+    scoreP1.innerText = scorePlayer[0];
+    scoreP2.innerText = scorePlayer[1];
+    currentP1.innerText = roundPlayer[0];
+    currentP2.innerText = roundPlayer[1];
 }
 
-
+function changePlayer() {
+    if (player == 0) {
+        player1Text.setAttribute('class','font-light');
+        player2Text.setAttribute('class','');
+        roundP1.classList.add('d-none')
+        roundP2.classList.remove('d-none')
+        player = 1;
+    }
+    else {
+        player1Text.setAttribute('class','');
+        player2Text.setAttribute('class','font-light');
+        player = 0;
+        roundP1.classList.remove('d-none')
+        roundP2.classList.add('d-none')
+    }
+}
