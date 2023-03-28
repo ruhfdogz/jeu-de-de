@@ -34,35 +34,36 @@
                     </button>
                 </div>
             </div>
+
             <div class="row py-5 align-items-center">
                 <div class="col-5 fs-2">
                     <span class="player1">PLAYER 1</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="red" class="position-absolute translate-middle mx-4 my-4" id="roundp1">
                         <circle cx="8" cy="8" r="8" />
                     </svg>
-                    <div class="score font-light" id="scorep1">11</div>
+                    <div class="score font-light" id="scorep1">0</div>
                 </div>
 
                 <div class="col-2">
-                    <img src="./images/de1.jpg" alt="Image du dé" class="img-fluid mt-5" id="diceImg">
+                    <img src="./images/de1.jpg" alt="Dice Image" class="img-fluid mt-5" id="diceImg">
                 </div>
 
                 <div class="col-5 fs-2 player2">
-                    <span class="player2">PLAYER 2</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="red" class="position-absolute translate-middle mx-4 my-4" id="roundp2">
+                    <span class="font-light">PLAYER 2</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="red" class="position-absolute translate-middle mx-4 my-4 d-none" id="roundp2">
                         <circle cx="8" cy="8" r="8" />
                     </svg>
-                    <div class="score font-light" id="scorep2">18</div>
+                    <div class="score font-light" id="scorep2">0</div>
                 </div>
             </div>
 
             <div class="row justify-content-center align-items-center py-5">
                 <div class="col-3 col-lg-2 bg-danger">
                     <p class="pt-3">CURRENT</p>
-                    <p class="text-white fs-1" id="currentp1">12</p>
+                    <p class="text-white fs-1" id="currentp1">0</p>
                 </div>
                 <div class="col-4 col-lg-5">
-                    <button type="button" class="btn my-2 disabled" id="rolldice" >
+                    <button type="button" class="btn my-2" id="rolldice" >
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="lightcoral"
                             class="bi bi-arrow-clockwise mx-1" viewBox="0 0 16 16">
                             <path fill-rule="evenodd"
@@ -73,7 +74,7 @@
                         ROLL DICE
                     </button>
                     <br>
-                    <button type="button" class="btn my-2 disabled" id="hold">
+                    <button type="button" class="btn my-2" id="hold">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="lightcoral"
                             class="bi bi-box-arrow-in-down mx-1" viewBox="0 0 16 16">
                             <path fill-rule="evenodd"
@@ -86,7 +87,7 @@
                 </div>
                 <div class="col-3 col-lg-2 bg-danger">
                     <p class="pt-3">CURRENT</p>
-                    <p class="text-white fs-1" id="currentp2">7</p>
+                    <p class="text-white fs-1" id="currentp2">0</p>
                 </div>
             </div>
         </div>

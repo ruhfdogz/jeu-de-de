@@ -28,10 +28,3 @@ body {
     box-shadow: 2px 4px 10px hsla(0, 0%, 0%, 0.3);
 }
 
-.player2 {
-    font-weight: lighter;
-}
-
-#roundp2 {
-    display: none;
-}

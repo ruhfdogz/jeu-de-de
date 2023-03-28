@@ -1,29 +1,36 @@
 // var init
-var scorePlayer1 = 0;
-var scorePlayer2 = 0;
-var roundPlayer1 = 0;
-var roundPlayer2 = 0;
+let scorePlayer1 = 0;
+let scorePlayer2 = 0;
+let roundPlayer1 = 0;
+let roundPlayer2 = 0;
+let diceValue = 1;
+let roundFinished = false;
+let win = false;
 
 // Buttons
 // New Game
-var btnNewGame = document.getElementById('newgame')
+let btnNewGame = document.getElementById('newgame')
 btnNewGame.addEventListener('click', newGame);
 // Roll Dice
-var btnRollDice = document.getElementById('rolldice')
+let btnRollDice = document.getElementById('rolldice')
 btnRollDice.addEventListener('click', rollDice)
 // Hold
-var btnHold = document.getElementById('hold')
+let btnHold = document.getElementById('hold')
 btnHold.addEventListener('click', hold)
 
 // DOM elements
-scoreP1 = document.getElementById('scorep1')
-scoreP2 = document.getElementById('scorep2')
-currentP1 = document.getElementById('currentp1')
-currentP2 = document.getElementById('currentp2')
+let scoreP1 = document.getElementById('scorep1')
+let scoreP2 = document.getElementById('scorep2')
+let currentP1 = document.getElementById('currentp1')
+let currentP2 = document.getElementById('currentp2')
+let diceImg = document.getElementById('diceImg');
+
 
 function newGame() {
-    var scorePlayer1 = 0;
-    var scorePlayer2 = 0;
+    scorePlayer1 = 0;
+    scorePlayer2 = 0;
+    roundPlayer1 = 0;
+    roundPlayer2 = 0;
     alert('New game will begin')
     btnRollDice.setAttribute('class','btn my-2')
     btnHold.setAttribute('class','btn my-2')
@@ -31,10 +38,24 @@ function newGame() {
 }
 
 function rollDice() {
-    alert('click sur Roll Dice');
+    diceValue = Math.floor(Math.random() * 6) + 1;
+    diceImg.src = `./images/de${diceValue}.jpg`;
+    if (diceValue != 1) {
+        roundPlayer1 += diceValue;
+    }
+    else {
+        roundPlayer1 = 0;
+        btnHold.setAttribute('class','btn my-2 disabled');
+    }
+    refreshDisplay();
+    
 }
 
 function hold() {
+    scorePlayer1 += roundPlayer1;
+    roundPlayer1 = 0;
+    refreshDisplay();
+    btnHold.setAttribute('class','btn my-2 disabled');
     alert('click sur Hold');
 }
 
@@ -44,4 +65,5 @@ function refreshDisplay() {
     currentP1.innerText = roundPlayer1;
     currentP2.innerText = roundPlayer2;
 }
+
 
