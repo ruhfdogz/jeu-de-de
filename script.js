@@ -23,7 +23,7 @@ let currentP1 = document.getElementById('currentp1')
 let currentP2 = document.getElementById('currentp2')
 let diceImg = document.getElementById('diceImg');
 
-
+// Functions
 function newGame() {
     scorePlayer = [0, 0];
     roundPlayer = [0, 0];
@@ -39,7 +39,7 @@ function rollDice() {
     setTimeout(() => {
         diceImg.classList.remove('shakeImg');
         btnRollDice.classList.remove('disabled');
-    }, "500")
+    }, "300")
     diceValue = Math.floor(Math.random() * 6) + 1;
     diceImg.src = `./images/de${diceValue}.jpg`;
     if (diceValue != 1) {
@@ -51,7 +51,6 @@ function rollDice() {
         changePlayer();
     }
     refreshDisplay();
-
 }
 
 function hold() {
