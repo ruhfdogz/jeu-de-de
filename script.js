@@ -80,15 +80,15 @@ function refreshDisplay() {
 
 function changePlayer() {
     if (player == 0) {
-        player1Text.setAttribute('class','font-light');
-        player2Text.setAttribute('class','');
+        player1Text.classList.add('font-light');
+        player2Text.classList.remove('font-light');
         roundP1.classList.add('d-none')
         roundP2.classList.remove('d-none')
         player = 1;
     }
     else {
-        player1Text.setAttribute('class','');
-        player2Text.setAttribute('class','font-light');
+        player1Text.classList.remove('font-light');
+        player2Text.classList.add('font-light');
         player = 0;
         roundP1.classList.remove('d-none')
         roundP2.classList.add('d-none')
