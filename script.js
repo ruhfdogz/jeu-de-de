@@ -36,6 +36,7 @@ function rollDice() {
     btnHold.classList.remove('disabled');
     btnRollDice.classList.add('disabled');
     diceImg.classList.add('shakeImg');
+    // Disable button an add timeout to prevent double click on Roll Dice button
     setTimeout(() => {
         diceImg.classList.remove('shakeImg');
         btnRollDice.classList.remove('disabled');
@@ -57,13 +58,13 @@ function hold() {
     scorePlayer[player] += roundPlayer[player];
     roundPlayer[player] = 0;
     refreshDisplay();
-    btnHold.setAttribute('class','btn my-2 disabled');
+    btnHold.setAttribute('class','btn my-2 disabled');  // Diasable Hold Button until next roll dice
     if (scorePlayer[player] >= 100) {
         setTimeout(() => {
             alert(`Player ${player + 1} win the game.`);
             newGame();
             changePlayer();
-        }, "100")
+        }, "100")       // Add timeout to prevent Refresh Dispaly problems caused by alert
     }
     else {
         changePlayer();
